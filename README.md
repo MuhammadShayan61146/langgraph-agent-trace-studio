@@ -1,3 +1,13 @@
+---
+title: LangGraph Agent Trace Studio
+emoji: 🕸️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Agentic Research System
 
 A production-inspired, LangGraph-based multi-agent research and
