@@ -8,6 +8,9 @@ app_port: 7860
 pinned: false
 ---
 
+## Live Demo
+Try the interactive trace viewer online: (https://langgraph-agent-trace-studio-d6106.containers.snapdeploy.app/)
+
 # Agentic Research System
 
 A production-inspired, LangGraph-based multi-agent research and
