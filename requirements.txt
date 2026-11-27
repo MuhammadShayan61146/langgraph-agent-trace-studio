@@ -1,0 +1,8 @@
+# Runtime dependencies for agentic-research-system.
+# Install with: pip install -r requirements.txt
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-anthropic>=0.2.0
+pydantic>=2.7
+python-dotenv>=1.0
+PyYAML>=6.0

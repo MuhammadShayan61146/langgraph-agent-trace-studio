@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent trace viewer</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="12" r="2.4" fill="currentColor"/><circle cx="19" cy="5" r="2.4" fill="currentColor"/><circle cx="19" cy="19" r="2.4" fill="currentColor"/><path d="M7 12h4l6-6M11 12l6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><span>Agent trace viewer</span></div>
+  <div class="top-right">
+    <span id="conn" class="pill" title="Connection to the local server">connecting</span>
+    <button id="theme" class="ghost" aria-label="Toggle light or dark theme">Theme</button>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="rail" aria-label="Experiments and runs">
+    <section>
+      <h2>Experiments</h2>
+      <div id="scenario-list" class="scenario-list" role="listbox"></div>
+      <div id="scenario-detail" class="scenario-detail"></div>
+    </section>
+    <section>
+      <h2>Recent runs</h2>
+      <div id="run-list" class="run-list"></div>
+    </section>
+  </aside>
+
+  <section class="stage" aria-label="Live execution">
+    <div id="run-tabs" class="run-tabs"></div>
+    <div id="hitl" class="hitl" hidden></div>
+    <div class="graph-wrap">
+      <svg id="graph" viewBox="0 -30 960 440" role="img" aria-label="Agent graph"></svg>
+      <div id="why" class="why" aria-live="polite"></div>
+    </div>
+    <div class="player">
+      <button id="play" class="ghost" aria-label="Play or pause replay">Replay</button>
+      <input id="scrub" type="range" min="0" max="0" value="0" aria-label="Scrub through events">
+      <select id="speed" aria-label="Replay speed"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option><option value=".5">0.5×</option></select>
+      <button id="golive" class="ghost" aria-label="Follow the live run">Live</button>
+      <span id="cursor-label" class="muted"></span>
+    </div>
+    <div class="stream-head">
+      <div class="tabs" id="stream-tabs" role="tablist">
+        <button role="tab" data-tab="thoughts" aria-selected="true">Thought stream</button>
+        <button role="tab" data-tab="log" aria-selected="false">Event log</button>
+      </div>
+      <div id="filters" class="filters" hidden></div>
+    </div>
+    <div id="stream" class="stream" tabindex="0"></div>
+  </section>
+
+  <aside class="inspector" aria-label="Inspector">
+    <div class="tabs" id="insp-tabs" role="tablist">
+      <button role="tab" data-tab="report" aria-selected="true">Report</button>
+      <button role="tab" data-tab="state" aria-selected="false">State</button>
+      <button role="tab" data-tab="audit" aria-selected="false">Audit</button>
+      <button role="tab" data-tab="compare" aria-selected="false">Compare</button>
+      <button role="tab" data-tab="export" aria-selected="false">Export</button>
+    </div>
+    <div id="insp" class="insp"></div>
+  </aside>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

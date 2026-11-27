@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-research-system"
+version = "0.1.0"
+description = "A LangGraph multi-agent research and report-generation system."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Muhammad Shayan" }]
+
+
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "langchain-anthropic>=0.2.0",
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "mypy>=1.10",
+    "ruff>=0.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentic_research = ["viz/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+mypy_path = "src"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
